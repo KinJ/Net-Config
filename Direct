@@ -6,6 +6,6 @@ host, emby-zxc.devkin.cc, direct
 host-suffix, poloemby.xyz, direct
 host-suffix, coemn.com, direct
 host-suffix, freetz.top, direct
-host,upos-sz-staticcos.bilivideo.com,reject
 host, emby.ednovas.org, direct
 host, misty.ltd, direct
+host-keyword, tos.bytegoofy.com, direct
