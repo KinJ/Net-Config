@@ -8,4 +8,4 @@ host-suffix, coemn.com, direct
 host-suffix, freetz.top, direct
 host, emby.ednovas.org, direct
 host, misty.ltd, direct
-host-wildcard, .*tos.bytegoofy.com, direct
+HOST-WILDCARD, .*tos.bytegoofy.com, direct
