@@ -4,6 +4,7 @@ host-suffix, carryz.net, direct
 ip-cidr, 193.123.232.141/24, direct
 host, emby-zxc.devkin.cc, direct
 host-suffix, poloemby.xyz, direct
+host-suffix, polodns.xyz, direct
 host-suffix, coemn.com, direct
 host-suffix, freetz.top, direct
 host-suffix, byteimg.com, direct
