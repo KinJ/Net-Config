@@ -1,13 +1,1 @@
-host, cfhd.xmsl.org, direct
-host, ushd.xmsl.org, direct
-host-suffix, carryz.net, direct
-ip-cidr, 193.123.232.141/24, direct
-host, emby-zxc.devkin.cc, direct
-host-suffix, poloemby.xyz, direct
-host-suffix, polodns.xyz, direct
-host-suffix, coemn.com, direct
-host-suffix, freetz.top, direct
-host-suffix, byteimg.com, direct
-host-suffix, bytegoofy.com, direct
-host, emby.ednovas.org, direct
-host, misty.ltd, direct
+IP-CIDR, 156.238.0.0/16
