@@ -8,4 +8,4 @@ DOMAIN-SUFFIX, ednovas.org
 DOMAIN-SUFFIX, mcjoker.xyz
 DOMAIN-SUFFIX, embymv.link
 DOMAIN-SUFFIX, aliz.work
-IP-CIDR, 193.123.232.141/24
+IP-CIDR, 193.123.232.0/24
