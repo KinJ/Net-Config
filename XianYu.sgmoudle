@@ -15,7 +15,9 @@ AND,((URL-REGEX,"^http:\/\/.+\/amdc\/mobileDispatch",extended-matching),(USER-AG
 [Map Local]
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\/ data-type=text data="{}" status-code=200
 
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.resell\.recommendorhotcate\/ data-type=text data="{}" status-code=200
 
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.playboy\.recommend\/ data-type=text data="{}" status-code=200
 
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.topic\.banner\/ data-type=text data="{}" status-code=200
 
