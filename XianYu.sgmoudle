@@ -30,8 +30,8 @@ http-response-jq ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop.taobao.idle.ite
 ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop.idle.ad.expose data-type=text data=" " status-code=200
 
 # > 搜索框
-^https://acs\.m\.goofish\.com/gw/mtop\.(taobao|alibaba)\.idle\.spotlight\.groupinfo/.*$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https://acs\.m\.goofish\.com/gw/mtop\.(taobao|alibaba)\.idlemtopsearch\.item\.search\..*$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https://acs\.m\.goofish\.com/gw/mtop\.(taobao|alibaba)\.idle\.spotlight\.groupinfo/.* data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https://acs\.m\.goofish\.com/gw/mtop\.(taobao|alibaba)\.idlemtopsearch\.search\.activate\.tablist/.* data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 # 闲鱼我的页面底部商品推荐
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.buy\.feeds data-type=text data="{}" status-code=200 header="Content-Type:application/json"
