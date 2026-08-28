@@ -2,9 +2,10 @@
 #!desc=移除开屏、首页、关注、同城、搜索及个人页广告，保留商品详情页推荐列表。
 #!openUrl=https://apps.apple.com/app/id510909506
 #!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!category=去广告
 #!homepage=https://hub.kelee.one
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/FleaMarket.png
-#!date=2026-08-28
+#!date=2026-08-28 11:30:56
 
 [Body Rewrite]
 # 首页信息流
