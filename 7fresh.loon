@@ -1,11 +1,14 @@
 #!name=七鲜去开屏广告
-#!desc=直接拦截七鲜开屏广告接口。
+#!desc=删除七鲜开屏广告接口返回中的 floors 数据。
 #!author=KinJ
 #!icon=https://m.7fresh.com/static/icon/logo.png
 #!homepage=https://github.com/KinJ/Net-Config
 #!tag=去广告
-#!date=2026-09-04 23:27:00
+#!date=2026-09-04 23:50:00
 
 [Rewrite]
-# 直接拦截开屏广告接口
-^https:\/\/color\.7fresh\.com\/api\?(?:[^&]+&)*functionId=start_screen_7fresh_query(?:&|$) reject-dict
+# 删除开屏广告楼层
+^https:\/\/color\.7fresh\.com\/api\?(?:[^&]+&)*functionId=start_screen_7fresh_query(?:&|$) response-body-json-jq '.data.floors = []'
+
+[MitM]
+hostname=color.7fresh.com
