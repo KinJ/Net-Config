@@ -1,0 +1,14 @@
+#!name=七鲜去开屏广告
+#!desc=将七鲜开屏广告返回中所有层级的展示时间改为已过期时间，避免开屏广告展示。
+#!author=KinJ
+#!icon=https://m.7fresh.com/static/icon/logo.png
+#!homepage=https://github.com/KinJ/Net-Config
+#!tag=去广告
+#!date=2026-09-04 22:50:00
+
+[Rewrite]
+# 将响应中所有层级的 beginTime/endTime 改为已过期时间
+^https:\/\/color\.7fresh\.com\/api\?(?:[^&]+&)*functionId=start_screen_7fresh_query(?:&|$) response-body-json-jq '((.. | objects | select(has("beginTime")) | .beginTime) = "2026-01-01 00:00:00") | ((.. | objects | select(has("endTime")) | .endTime) = "2026-01-02 00:00:00")'
+
+[MitM]
+hostname=color.7fresh.com
