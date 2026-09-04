@@ -1,0 +1,13 @@
+#!name=七鲜去开屏广告
+#!desc=将七鲜开屏广告返回中的展示时间改为历史时间，避免开屏广告展示。
+#!author=KinJ
+#!homepage=https://github.com/KinJ/Net-Config
+#!category=去广告
+#!date=2026-09-04 22:15:00
+
+[Body Rewrite]
+# 将开屏广告及 tabList 中的 beginTime/endTime 改为历史时间
+http-response-jq ^https:\/\/color\.7fresh\.com\/api\?functionId=start_screen_7fresh_query(?:&|$) '((.. | objects | select(has("beginTime")) | .beginTime) = "2000-01-01 00:00:00") | ((.. | objects | select(has("endTime")) | .endTime) = "2000-01-01 00:00:00")'
+
+[MITM]
+hostname = %APPEND% color.7fresh.com
