@@ -1,5 +1,5 @@
 #!name=七鲜去开屏广告
-#!desc=将七鲜开屏广告返回中所有层级的展示时间改为已过期时间，避免开屏广告展示。
+#!desc=将七鲜开屏广告返回中所有层级的展示时间和图片、视频地址清空，避免开屏广告展示。
 #!author=KinJ
 #!icon=https://m.7fresh.com/static/icon/logo.png
 #!homepage=https://github.com/KinJ/Net-Config
@@ -7,8 +7,8 @@
 #!date=2026-09-04 22:50:00
 
 [Rewrite]
-# 将响应中所有层级的 beginTime/endTime 改为已过期时间
-^https:\/\/color\.7fresh\.com\/api\?(?:[^&]+&)*functionId=start_screen_7fresh_query(?:&|$) response-body-json-jq '((.. | objects | select(has("beginTime")) | .beginTime) = "2026-01-01 00:00:00") | ((.. | objects | select(has("endTime")) | .endTime) = "2026-01-02 00:00:00")'
+# 将响应中所有层级的时间改为已过期时间，并清空图片、视频地址
+^https:\/\/color\.7fresh\.com\/api\?(?:[^&]+&)*functionId=start_screen_7fresh_query(?:&|$) response-body-json-jq '((.. | objects | select(has("beginTime")) | .beginTime) = "2026-01-01 00:00:00") | ((.. | objects | select(has("endTime")) | .endTime) = "2026-01-02 00:00:00") | ((.. | objects | select(has("videoUrl")) | .videoUrl) = null) | ((.. | objects | select(has("imageUrl")) | .imageUrl) = null) | ((.. | objects | select(has("imgUrl")) | .imgUrl) = null)'
 
 [MitM]
 hostname=color.7fresh.com
