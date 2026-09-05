@@ -13,4 +13,4 @@
 ^https:\/\/api\.m\.jd\.com\/client\.action\?$ response-body-json-jq 'if .data.startupConfig then del(.data.startupConfig) else . end'
 
 [MitM]
-hostname=color.7fresh.com
+hostname=color.7fresh.com,api.m.jd.com
