@@ -1,5 +1,5 @@
 #!name=七鲜去开屏广告
-#!desc=删除七鲜开屏广告接口返回中的 floors 数据。
+#!desc=删除七鲜开屏广告接口返回中的 floors，以及客户端策略中的 startupConfig。
 #!author=KinJ
 #!icon=https://m.7fresh.com/static/icon/logo.png
 #!homepage=https://github.com/KinJ/Net-Config
@@ -9,6 +9,8 @@
 [Rewrite]
 # 删除开屏广告楼层
 ^https:\/\/color\.7fresh\.com\/api\?(?:[^&]+&)*functionId=start_screen_7fresh_query(?:&|$) response-body-json-jq '.data.floors = []'
+# 删除客户端策略响应中的启动配置（仅当字段存在时生效）
+^https:\/\/api\.m\.jd\.com\/client\.action\?$ response-body-json-jq 'if .data.startupConfig then del(.data.startupConfig) else . end'
 
 [MitM]
 hostname=color.7fresh.com
