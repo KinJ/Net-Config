@@ -6,7 +6,7 @@
 #!loon_version=3.4.0(962)
 #!homepage=https://hub.kelee.one
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/FleaMarket.png
-#!date=2026-08-28 11:30:56
+#!date=2026-09-10 15:49:48
 
 [Rewrite]
 # 开屏广告
@@ -32,8 +32,8 @@
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/ response-body-json-jq '.data.sections |= map(select((.template.cardEnum != "ads") and (.cardType == "common")))'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.near\.by\.corner\.info\/ reject-dict
 
-# 搜索：沿用 Surge/5af2c04f 的处理，不删除 resultPrefixBar
-^https:\/\/g-acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\/ response-body-json-jq '.data.resultList |= map(if .data.item.main.exContent.dislikeFeedback.clickParam.args.bizType == "ad" then empty else . end)'
+# 搜索
+^https:\/\/g-acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\/ response-body-json-jq '.data.resultList |= map(if .data.item.main.exContent.dislikeFeedback.clickParam.args.bizType == "ad" then empty else . end) | del(.data.resultPrefixBar)'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.shade\/ reject-dict
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.item\.search\.activate\/ reject-dict
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.discover\/ reject-dict
@@ -46,5 +46,9 @@
 # 商品详情页推荐：保留正常推荐商品，只过滤广告卡片
 ^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.recommend(?:\.list)?\/ response-body-json-jq 'if (.data.cardList | type) == "array" then .data.cardList |= map(select((.cardData.bizType? // "") != "mamaAD")) else . end'
 
+[Rule]
+# 仅拦截闲鱼客户端的 AB 测试配置，避免影响其他阿里系应用
+AND,((DOMAIN-SUFFIX,abtest.alibaba.com),(USER-AGENT,"%E9%97%B2%E9%B1%BC*")),REJECT
+
 [MitM]
-hostname=acs.m.goofish.com, g-acs.m.goofish.com
+hostname=acs.m.goofish.com, g-acs.m.goofish.com, abtest.alibaba.com
