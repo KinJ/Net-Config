@@ -256,11 +256,19 @@ function parseCards(html, host) {
 }
 
 async function prepareUrl(item, params, host) {
-  var data = parseJson(await httpPostJson(host + "/api/sub/prepare-download", { sid: item.sid }, params, item.page));
-  var path = data && data.success && data.url ? data.url : "/down/" + item.sid;
-  if (/^https?:\/\//i.test(path)) return path;
-  if (path.charAt(0) !== "/") path = "/" + path;
-  return host + path;
+  var prepared = parseJson(await httpPostJson(host + "/api/sub/prepare-download", { sid: item.sid }, params, item.page));
+  if (!prepared || prepared.success !== true || !prepared.url) return null;
+
+  // /down/{sid} is a temporary page. Visiting it creates the short-lived
+  // ticket that the real download API validates; it is not the file URL.
+  var pageUrl = /^https?:\/\//i.test(prepared.url)
+    ? prepared.url
+    : host + (prepared.url.charAt(0) === "/" ? prepared.url : "/" + prepared.url);
+  await httpGet(pageUrl, params, item.page);
+
+  var result = parseJson(await httpPostJson(host + "/api/sub/down", { sid: item.sid }, params, pageUrl));
+  if (!result || result.success !== true || result.pass !== true || !result.url) return null;
+  return result.url;
 }
 
 async function searchOne(host, key, params) {
