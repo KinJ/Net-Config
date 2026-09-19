@@ -1,7 +1,7 @@
 WidgetMetadata = {
   id: "subhd.subtitle.rex",
   title: "SubHD 字幕",
-  version: "2.1.0",
+  version: "2.1.1",
   requiredVersion: "0.0.1",
   description: "SubHD 字幕搜索（Rex / Forward 明文版）。按片名、番号、剧集搜索，并解析真实下载地址。",
   author: "EL",
